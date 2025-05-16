@@ -9,16 +9,14 @@
 
   <script>
     function openGemini() {
-      const url = 'redirect.html';  // loads from your GitHub Pages
-      const windowName = 'geminiWindow';
-      const features = 'noopener,noreferrer';
+      const windowName = 'geminiTab';
+      const redirectURL = 'redirect.html';
 
-      const existing = window.open('', windowName);
-      if (!existing || existing.closed) {
-        window.open(url, windowName, features);
+      // Try to reuse the tab
+      if (!window.geminiTab || window.geminiTab.closed) {
+        window.geminiTab = window.open(redirectURL, windowName);
       } else {
-        existing.location = url;
-        existing.focus();
+        window.geminiTab.focus();
       }
     }
   </script>
