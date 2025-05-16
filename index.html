@@ -3,19 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Open Gemini Once</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background-color: #4285f4;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3367d6;
+    }
+  </style>
 </head>
 <body>
-  <h1>Gemini Launcher 1</h1>
+  <h1>Gemini Tab Launcher</h1>
   <button onclick="openGemini()">Open Gemini</button>
 
   <script>
+    let geminiTab = null;
+
     function openGemini() {
-      // Only allow opening the tab once per session
-      if (!sessionStorage.getItem('geminiOpened')) {
-        window.open('https://gemini.google.com/app?hl=en_GB', '_blank');
-        sessionStorage.setItem('geminiOpened', 'true');
+      if (!geminiTab || geminiTab.closed) {
+        geminiTab = window.open('https://gemini.google.com/app?hl=en_GB', '_blank');
       } else {
-        alert('Gemini is already open. Please check your browser tabs.');
+        console.log("Gemini is already open.");
       }
     }
   </script>
