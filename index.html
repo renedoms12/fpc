@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Open Gemini</title>
 </head>
 <body>
+  <h2>Gemini Launcher</h2>
   <button onclick="openGemini()">Open Gemini</button>
 
   <script>
     function openGemini() {
-      const windowName = 'geminiTab';
-      const redirectURL = 'redirect.html';
-
-      // Try to reuse the tab
-      if (!window.geminiTab || window.geminiTab.closed) {
-        window.geminiTab = window.open(redirectURL, windowName);
+      // Opens redirect.html in a named tab so it reuses the tab
+      const win = window.open('redirect.html', 'geminiTab');
+      if (win) {
+        win.focus(); // Focus the tab if already open
       } else {
-        window.geminiTab.focus();
+        alert("Please allow pop-ups for this site.");
       }
     }
   </script>
 </body>
 </html>
+
 
 
 
