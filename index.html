@@ -8,13 +8,16 @@
   <button onclick="openGemini()">Open Gemini</button>
 
   <script>
-    let geminiWindow;
-
     function openGemini() {
-      if (!geminiWindow || geminiWindow.closed) {
-        geminiWindow = window.open('https://gemini.google.com/app?hl=en_GB', 'geminiWindow');
+      const url = 'https://gemini.google.com/app?hl=en_GB';
+      const windowName = 'geminiWindow';
+      const features = 'noopener,noreferrer';
+
+      const existing = window.open('', windowName);
+      if (!existing || existing.closed) {
+        window.open(url, windowName, features);
       } else {
-        geminiWindow.focus();
+        existing.focus();
       }
     }
   </script>
