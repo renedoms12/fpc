@@ -2,28 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Gemini Launcher</title>
+  <title>Open Gemini Once</title>
 </head>
 <body>
-  <h1>Open Gemini</h1>
-  <button id="openGeminiBtn">Open Gemini</button>
+  <h1>Gemini Launcher</h1>
+  <button onclick="openGemini()">Open Gemini</button>
 
   <script>
-    let geminiTab = null;
-
-    document.getElementById('openGeminiBtn').addEventListener('click', function () {
-      const url = "https://gemini.google.com/app?hl=en_GB";
-
-      // If the tab doesn't exist or was closed
-      if (!geminiTab || geminiTab.closed) {
-        geminiTab = window.open(url, "geminiWindow");
+    function openGemini() {
+      // Only allow opening the tab once per session
+      if (!sessionStorage.getItem('geminiOpened')) {
+        window.open('https://gemini.google.com/app?hl=en_GB', '_blank');
+        sessionStorage.setItem('geminiOpened', 'true');
       } else {
-        geminiTab.focus();
+        alert('Gemini is already open. Please check your browser tabs.');
       }
-    });
+    }
   </script>
 </body>
 </html>
+
 
 
 
