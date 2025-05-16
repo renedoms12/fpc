@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Open Gemini</title>
+</head>
+<body>
+  <button onclick="openGemini()">Open Gemini</button>
+
+  <script>
+    let geminiWindow;
+
+    function openGemini() {
+      if (!geminiWindow || geminiWindow.closed) {
+        geminiWindow = window.open('https://gemini.google.com/app?hl=en_GB', 'geminiWindow');
+      } else {
+        geminiWindow.focus();
+      }
+    }
+  </script>
+</body>
+</html>
