@@ -12,6 +12,7 @@
       const windowName = 'geminiTab';
       const redirectURL = 'redirect.html';
 
+      // Try to reuse the tab
       if (!window.geminiTab || window.geminiTab.closed) {
         window.geminiTab = window.open(redirectURL, windowName);
       } else {
@@ -21,4 +22,5 @@
   </script>
 </body>
 </html>
+
 
