@@ -9,7 +9,7 @@
 
   <script>
     function openGemini() {
-      const url = 'https://gemini.google.com/app?hl=en_GB';
+      const url = 'redirect.html';  // loads from your GitHub Pages
       const windowName = 'geminiWindow';
       const features = 'noopener,noreferrer';
 
@@ -17,6 +17,7 @@
       if (!existing || existing.closed) {
         window.open(url, windowName, features);
       } else {
+        existing.location = url;
         existing.focus();
       }
     }
